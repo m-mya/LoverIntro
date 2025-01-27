@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intro Review Rubric</title>
+  <link href="https://fonts.cdnfonts.com/css/cocogoose" rel="stylesheet">
+  <style>
+    body {
+      background-color: #13223d; /* New dark color */
+      color: #ffffff; /* Light text for contrast */
+      font-family: 'Cocogoose', sans-serif; /* Cocogoose font */
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      color: #00f3ff; /* Highlight color */
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 1000px;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter background for input */
+      color: #ffffff;
+      border: 1px solid #00f3ff; /* Highlight color */
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #00f3ff; /* Highlight color */
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #00f3ff; /* Highlight color */
+      color: #13223d; /* Dark color for text */
+    }
+    td.score-cell {
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+    td.score-cell:hover {
+      background-color: rgba(0, 243, 255, 0.1); /* Light highlight on hover */
+    }
+    td.score-cell.selected {
+      background-color: #00f3ff; /* Highlight color */
+      color: #13223d; /* Dark color for text */
+    }
+    td.score-cell:active {
+      transform: scale(0.95); /* Click animation */
+    }
+    textarea {
+      resize: vertical;
+    }
+    .button {
+      background-color: #00f3ff; /* Highlight color */
+      color: #13223d; /* Dark color for text */
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.2s;
+      border-radius: 5px;
+      margin: 5px;
+    }
+    .button:hover {
+      transform: scale(1.05);
+      background-color: #00d9e6; /* Slightly darker highlight color */
+    }
+    .recommendations {
+      background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter background */
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .score-summary {
+      background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter background */
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .score-summary h2 {
+      margin-bottom: 10px;
+    }
+    .score-summary p {
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Intro Review Rubric</h1>
+  <div class="container">
+    <textarea placeholder="Paste your intro script or details here..."></textarea>
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Good (1)</th>
+          <th>Great (2)</th>
+          <th>Excellent (3)</th>
+          <th>Outstanding (4)</th>
+          <th>Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pacing</td>
+          <td class="score-cell" data-score="1">Slow and awkward; viewers lose interest quickly.</td>
+          <td class="score-cell" data-score="2">Decent pacing but inconsistent transitions.</td>
+          <td class="score-cell" data-score="3">Smooth and engaging pacing with tight edits.</td>
+          <td class="score-cell" data-score="4">Perfectly timed, high-energy pacing that hooks viewers from the first second.</td>
+          <td><textarea rows="2"></textarea></td>
+        </tr>
+        <tr>
+          <td>Voice Over</td>
+          <td class="score-cell" data-score="1">Monotone or unclear delivery.</td>
+          <td class="score-cell" data-score="2">Clear but lacks energy or variation.</td>
+          <td class="score-cell" data-score="3">Energetic, engaging, and emotionally varied tone.</td>
+          <td class="score-cell" data-score="4">Captivating and animated voiceover, perfectly synced with visuals to maximize impact.</td>
+          <td><textarea rows="2"></textarea></td>
+        </tr>
+        <tr>
+          <td>Goal/Challenge</td>
+          <td class="score-cell" data-score="1">No clear goal or challenge; feels random.</td>
+          <td class="score-cell" data-score="2">Goal stated but lacks excitement or urgency.</td>
+          <td class="score-cell" data-score="3">Clear and intriguing goal, explained succinctly.</td>
+          <td class="score-cell" data-score="4">Bold, high-stakes challenge that sparks curiosity and emotional investment immediately.</td>
+          <td><textarea rows="2"></textarea></td>
+        </tr>
+        <tr>
+          <td>CTA & Audience Interaction</td>
+          <td class="score-cell" data-score="1">Generic or weak CTA (e.g., “Like & Subscribe”).</td>
+          <td class="score-cell" data-score="2">Basic CTA with minor interaction prompts.</td>
+          <td class="score-cell" data-score="3">Strong and relevant CTA tied to the video’s premise (e.g., “Comment your score below!”).</td>
+          <td class="score-cell" data-score="4">Actionable, creative, and emotional CTA that integrates seamlessly with the video’s content.</td>
+          <td><textarea rows="2"></textarea></td>
+        </tr>
+        <tr>
+          <td>Trend Jacking</td>
+          <td class="score-cell" data-score="1">Outdated or irrelevant trend used.</td>
+          <td class="score-cell" data-score="2">Mentions trend but feels forced.</td>
+          <td class="score-cell" data-score="3">Integrates trends naturally while staying authentic to the video’s theme.</td>
+          <td class="score-cell" data-score="4">Redefines or innovates a trend, making it fresh and uniquely engaging.</td>
+          <td><textarea rows="2"></textarea></td>
+        </tr>
+        <tr>
+          <td>Emotional Teasers</td>
+          <td class="score-cell" data-score="1">Boring or generic reactions with no real connection to the content.</td>
+          <td class="score-cell" data-score="2">Somewhat intriguing but lacks emotional stakes.</td>
+          <td class="score-cell" data-score="3">Effective teaser moments that build curiosity and excitement.</td>
+          <td class="score-cell" data-score="4">Thrilling or heartwarming teasers that perfectly preview the stakes or payoffs of the video.</td>
+          <td><textarea rows="2"></textarea></td>
+        </tr>
+        <tr>
+          <td>Conflict & Stakes</td>
+          <td class="score-cell" data-score="1">Low stakes or unclear conflict.</td>
+          <td class="score-cell" data-score="2">Basic stakes are present but not emotionally engaging.</td>
+          <td class="score-cell" data-score="3">High stakes introduced with some tension or excitement.</td>
+          <td class="score-cell" data-score="4">Tension or stakes are unavoidable and emotionally gripping, creating a must-watch atmosphere.</td>
+          <td><textarea rows="2"></textarea></td>
+        </tr>
+        <tr>
+          <td>Visual Hooks</td>
+          <td class="score-cell" data-score="1">Overwhelming or underwhelming visuals that fail to captivate.</td>
+          <td class="score-cell" data-score="2">Decent visuals but lack cohesion or excitement.</td>
+          <td class="score-cell" data-score="3">Eye-catching visuals that align with the intro’s narrative.</td>
+          <td class="score-cell" data-score="4">Cinematic, memorable visuals that amplify tension, stakes, and engagement perfectly.</td>
+          <td><textarea rows="2"></textarea></td>
+        </tr>
+        <tr>
+          <td>Intro Length</td>
+          <td class="score-cell" data-score="1">Too long; viewers lose interest before it ends.</td>
+          <td class="score-cell" data-score="2">Moderately concise but could be shorter.</td>
+          <td class="score-cell" data-score="3">Concise and engaging under 25 seconds.</td>
+          <td class="score-cell" data-score="4">Masterfully tight, under 20 seconds, leaving viewers wanting more.</td>
+          <td><textarea rows="2"></textarea></td>
+        </tr>
+        <tr>
+          <td>Transitions</td>
+          <td class="score-cell" data-score="1">Jarring or unclear transitions to the main content.</td>
+          <td class="score-cell" data-score="2">Transitions work but lack polish.</td>
+          <td class="score-cell" data-score="3">Clear and smooth transitions with good pacing.</td>
+          <td class="score-cell" data-score="4">Flawless transitions using music, visuals, or sound effects to maintain momentum and flow.</td>
+          <td><textarea rows="2"></textarea></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="score-summary">
+      <h2>Total Score</h2>
+      <p id="total-score">0</p>
+      <p id="approval-status"></p>
+    </div>
+    <button class="button" onclick="calculateTotalScore()">Calculate Total Score</button>
+    <div class="recommendations">
+      <h2>AI Recommendations</h2>
+      <p id="ai-recommendations">Recommendations will appear here.</p>
+    </div>
+    <button class="button" onclick="exportReport()">Export Report</button>
+    <button class="button" onclick="resetReport()">Reset</button>
+  </div>
+  <script>
+    // Add click event listeners to score cells
+    const scoreCells = document.querySelectorAll('.score-cell');
+    scoreCells.forEach(cell => {
+      cell.addEventListener('click', () => {
+        // Remove selected class from all cells in the same row
+        const row = cell.parentElement;
+        row.querySelectorAll('.score-cell').forEach(c => c.classList.remove('selected'));
+        // Add selected class to the clicked cell
+        cell.classList.add('selected');
+        // Update the total score display
+        calculateTotalScore();
+      });
+    });
+
+    // Calculate total score
+    function calculateTotalScore() {
+      const selectedCells = document.querySelectorAll('.score-cell.selected');
+      let totalScore = 0;
+      selectedCells.forEach(cell => {
+        totalScore += parseInt(cell.getAttribute('data-score')) || 0;
+      });
+      document.getElementById('total-score').textContent = totalScore;
+      const status = totalScore >= 35 ? "Approved" : "Not Approved";
+      document.getElementById('approval-status').textContent = `Status: ${status}`;
+    }
+
+    // Reset the report
+    function resetReport() {
+      const scoreCells = document.querySelectorAll('.score-cell');
+      scoreCells.forEach(cell => {
+        cell.classList.remove('selected');
+      });
+      document.getElementById('total-score').textContent = 0;
+      document.getElementById('approval-status').textContent = "";
+      document.getElementById('ai-recommendations').innerText = "Recommendations will appear here.";
+    }
+
+    // Export functionality (placeholder)
+    function exportReport() {
+      alert("Export functionality will be implemented here.");
+    }
+  </script>
+</body>
+</html>#
