@@ -223,7 +223,14 @@
       selectedCells.forEach(cell => {
         totalScore += parseInt(cell.getAttribute('data-score')) || 0;
       });
-      document.getElementById('total-score').textContent = totalScore;
+
+      // Calculate max score dynamically based on number of rows (categories) times 4
+      const totalCategories = document.querySelectorAll('tbody tr').length;
+      const maxScore = totalCategories * 4;
+
+      // Display total score and max possible score (e.g., 20/40)
+      document.getElementById('total-score').textContent = `${totalScore}/${maxScore}`;
+
       const status = totalScore >= 35 ? "Approved" : "Not Approved";
       document.getElementById('approval-status').textContent = `Status: ${status}`;
     }
