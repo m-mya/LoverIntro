@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Intro Review</title>
-  <link href="https://fonts.cdnfonts.com/css/cocogoose" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/cocogoose" rel="stylesheet" />
   <style>
     body {
       background-color: #13223d; /* Dark color */
@@ -56,10 +56,10 @@
       background-color: transparent;
       width: 100%;
       height: auto;
-      perspective: 1000px; /* 3D space for flip */
+      perspective: 1000px; /* 3D space for the flip */
     }
 
-    /* The container box that will get flipped */
+    /* The container box that will be flipped */
     .flip-box-inner {
       position: relative;
       width: 100%;
@@ -69,8 +69,9 @@
       cursor: pointer;
     }
 
-    /* Front and back side of flipped element */
-    .flip-box-front, .flip-box-back {
+    /* Front side */
+    .flip-box-front,
+    .flip-box-back {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -81,17 +82,29 @@
     .flip-box-front {
       background-color: transparent;
       color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      text-align: center;
     }
 
+    /* Back side (definition) */
     .flip-box-back {
       background-color: #ff004f; /* Highlight color for the "definition" side */
-      color: #13223d; /* Dark text for readability */
+      color: #ffffff; /* White text */
       transform: rotateY(180deg);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 20px;
+
+      /* Allow text to wrap and fit */
+      word-wrap: break-word;
+      overflow: auto;
+      font-size: 0.9rem;
+      line-height: 1.3rem;
     }
 
     /* Hover to flip */
@@ -115,11 +128,12 @@
     }
 
     .category {
-      font-weight: bold; /* Bolded categories */
+      font-weight: bold;
     }
+
     .button {
       background-color: #ff004f; /* Highlight color */
-      color: #13223d; /* Dark color for text */
+      color: #13223d;           /* Dark color for text */
       border: none;
       padding: 10px 20px;
       cursor: pointer;
@@ -131,6 +145,7 @@
       transform: scale(1.05);
       background-color: #e60046; /* Slightly darker highlight color */
     }
+
     .recommendations {
       background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter background */
       padding: 20px;
@@ -176,7 +191,8 @@
                   Pacing
                 </div>
                 <div class="flip-box-back">
-                  Refers to the rhythm and speed at which a video or story unfolds, influencing how engaged the audience stays throughout.
+                  Refers to the rhythm and speed at which a video or story unfolds, 
+                  influencing how engaged the audience stays throughout.
                 </div>
               </div>
             </div>
@@ -195,7 +211,8 @@
                   Voice Over
                 </div>
                 <div class="flip-box-back">
-                  An off-camera narration or commentary that provides context, explains visuals, or drives the narrative forward in a video or presentation.
+                  An off-camera narration or commentary that provides context, explains visuals, 
+                  or drives the narrative forward in a video or presentation.
                 </div>
               </div>
             </div>
@@ -214,7 +231,8 @@
                   Goal/Challenge
                 </div>
                 <div class="flip-box-back">
-                  The central objective or obstacle that motivates the narrative, creating purpose and driving the storyline or content structure.
+                  The central objective or obstacle that motivates the narrative, creating purpose 
+                  and driving the storyline or content structure.
                 </div>
               </div>
             </div>
@@ -233,7 +251,8 @@
                   CTA &amp; Audience Interaction
                 </div>
                 <div class="flip-box-back">
-                  A direct request or instruction to the audience—such as “subscribe,” “click,” or “share”—designed to spark engagement or prompt a response.
+                  A direct request or instruction to the audience—such as “subscribe,” “click,” or 
+                  “share”—designed to spark engagement or prompt a response.
                 </div>
               </div>
             </div>
@@ -252,7 +271,8 @@
                   Trend Jacking
                 </div>
                 <div class="flip-box-back">
-                  Capitalizing on current trends, popular topics, or viral moments to increase relevance and audience reach.
+                  Capitalizing on current trends, popular topics, or viral moments to 
+                  increase relevance and audience reach.
                 </div>
               </div>
             </div>
@@ -271,7 +291,8 @@
                   Emotional Teaser
                 </div>
                 <div class="flip-box-back">
-                  A brief, emotionally charged preview or introduction that hooks viewers by tapping into their feelings, curiosity, or empathy.
+                  A brief, emotionally charged preview or introduction that hooks viewers by tapping 
+                  into their feelings, curiosity, or empathy.
                 </div>
               </div>
             </div>
@@ -290,7 +311,8 @@
                   Conflict &amp; Stakes
                 </div>
                 <div class="flip-box-back">
-                  The tension or problem at the heart of a narrative and the potential consequences or risks, which heighten audience investment and drama.
+                  The tension or problem at the heart of a narrative and the potential consequences or 
+                  risks, which heighten audience investment and drama.
                 </div>
               </div>
             </div>
@@ -309,7 +331,8 @@
                   Visual Hooks
                 </div>
                 <div class="flip-box-back">
-                  Eye-catching images, graphics, or scenes that instantly grab viewers’ attention and maintain interest.
+                  Eye-catching images, graphics, or scenes that instantly grab viewers’ 
+                  attention and maintain interest.
                 </div>
               </div>
             </div>
@@ -328,7 +351,8 @@
                   Intro Length
                 </div>
                 <div class="flip-box-back">
-                  The duration of a video’s opening segment; ideally kept concise to quickly engage viewers before revealing the core content.
+                  The duration of a video’s opening segment; ideally kept concise to quickly engage 
+                  viewers before revealing the core content.
                 </div>
               </div>
             </div>
@@ -347,7 +371,8 @@
                   Transitions
                 </div>
                 <div class="flip-box-back">
-                  Techniques (cuts, fades, wipes, etc.) used to move smoothly between scenes or sections, maintaining flow and clarity.
+                  Techniques (cuts, fades, wipes, etc.) used to move smoothly between 
+                  scenes or sections, maintaining flow and clarity.
                 </div>
               </div>
             </div>
