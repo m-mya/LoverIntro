@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Intro Review</title>
-  <link href="https://fonts.cdnfonts.com/css/cocogoose" rel="stylesheet" />
+  <link href="https://fonts.cdnfonts.com/css/cocogoose" rel="stylesheet">
   <style>
     body {
       background-color: #13223d; /* Dark color */
-      color: #ffffff; /* Light text for contrast */
+      color: #ffffff; /* White text */
       font-family: 'Cocogoose', sans-serif; /* Cocogoose font */
       margin: 0;
       padding: 20px;
@@ -25,16 +25,6 @@
       width: 100%;
       max-width: 1000px;
     }
-    textarea {
-      width: 100%;
-      height: 100px;
-      background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter background for input */
-      color: #ffffff;
-      border: 1px solid #ff004f; /* Highlight color */
-      padding: 10px;
-      border-radius: 5px;
-      margin-bottom: 20px;
-    }
     table {
       width: 100%;
       border-collapse: collapse;
@@ -44,96 +34,50 @@
       border: 1px solid #ff004f; /* Highlight color */
       padding: 10px;
       text-align: left;
-      position: relative; /* For positioning the flip/tooltip effect */
     }
     th {
       background-color: #ff004f; /* Highlight color */
       color: #13223d; /* Dark color for text */
     }
-
-    /* Flip box container */
-    .flip-box {
-      background-color: transparent;
-      width: 100%;
-      height: auto;
-      perspective: 1000px; /* 3D space for the flip */
-    }
-
-    /* The container box that will be flipped */
-    .flip-box-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-      cursor: pointer;
-    }
-
-    /* Front side */
-    .flip-box-front,
-    .flip-box-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden; /* Hide the back side when not visible */
-      padding: 10px;
-    }
-
-    .flip-box-front {
-      background-color: transparent;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    /* Back side (definition) */
-    .flip-box-back {
-      background-color: #ff004f; /* Highlight color for the "definition" side */
-      color: #ffffff; /* White text */
-      transform: rotateY(180deg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-
-      /* Allow text to wrap and fit */
-      word-wrap: break-word;
-      overflow: auto;
-      font-size: 0.9rem;
-      line-height: 1.3rem;
-    }
-
-    /* Hover to flip */
-    .flip-box-inner:hover {
-      transform: rotateY(180deg);
-    }
-
-    /* Score cell styles */
-    td.score-cell {
-      transition: background-color 0.2s, transform 0.2s;
-    }
-    td.score-cell:hover {
-      background-color: rgba(255, 0, 79, 0.1); /* Light highlight on hover */
-    }
-    td.score-cell.selected {
-      background-color: rgba(255, 0, 79, 0.5); /* Semi-transparent highlight */
-      color: #ffffff; /* Light text for contrast */
-    }
-    td.score-cell:active {
-      transform: scale(0.95); /* Click animation */
-    }
-
     .category {
-      font-weight: bold;
+      font-weight: bold; /* Bolded categories */
+      position: relative;
+      perspective: 1000px; /* For 3D flip effect */
     }
-
+    .category .flip-box {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+    }
+    .category:hover .flip-box {
+      transform: rotateY(180deg); /* Flip on hover */
+    }
+    .category .flip-box .front,
+    .category .flip-box .back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden; /* Hide the back side during flip */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .category .flip-box .front {
+      background-color: #13223d; /* Dark color */
+      color: #ffffff; /* White text */
+    }
+    .category .flip-box .back {
+      background-color: #ff004f; /* Highlight color */
+      color: #ffffff; /* White text */
+      transform: rotateY(180deg); /* Flip to the back */
+    }
     .button {
       background-color: #ff004f; /* Highlight color */
-      color: #13223d;           /* Dark color for text */
+      color: #13223d; /* Dark color for text */
       border: none;
       padding: 10px 20px;
       cursor: pointer;
@@ -145,7 +89,6 @@
       transform: scale(1.05);
       background-color: #e60046; /* Slightly darker highlight color */
     }
-
     .recommendations {
       background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter background */
       padding: 20px;
@@ -170,7 +113,6 @@
 <body>
   <h1>Intro Review</h1>
   <div class="container">
-    <textarea placeholder="Paste your intro script or details here..."></textarea>
     <table>
       <thead>
         <tr>
@@ -183,18 +125,10 @@
       </thead>
       <tbody>
         <tr>
-          <!-- Pacing -->
           <td class="category">
             <div class="flip-box">
-              <div class="flip-box-inner">
-                <div class="flip-box-front">
-                  Pacing
-                </div>
-                <div class="flip-box-back">
-                  Refers to the rhythm and speed at which a video or story unfolds, 
-                  influencing how engaged the audience stays throughout.
-                </div>
-              </div>
+              <div class="front">Pacing</div>
+              <div class="back">Refers to the rhythm and speed at which a video or story unfolds, influencing how engaged the audience stays throughout.</div>
             </div>
           </td>
           <td class="score-cell" data-score="1">Slow and awkward; viewers lose interest quickly.</td>
@@ -203,18 +137,10 @@
           <td class="score-cell" data-score="4">Perfectly timed, high-energy pacing that hooks viewers from the first second.</td>
         </tr>
         <tr>
-          <!-- Voice Over -->
           <td class="category">
             <div class="flip-box">
-              <div class="flip-box-inner">
-                <div class="flip-box-front">
-                  Voice Over
-                </div>
-                <div class="flip-box-back">
-                  An off-camera narration or commentary that provides context, explains visuals, 
-                  or drives the narrative forward in a video or presentation.
-                </div>
-              </div>
+              <div class="front">Voice-Over</div>
+              <div class="back">An off-camera narration or commentary that provides context, explains visuals, or drives the narrative forward in a video or presentation.</div>
             </div>
           </td>
           <td class="score-cell" data-score="1">Monotone or unclear delivery.</td>
@@ -223,18 +149,10 @@
           <td class="score-cell" data-score="4">Captivating and animated voiceover, perfectly synced with visuals to maximize impact.</td>
         </tr>
         <tr>
-          <!-- Goal/Challenge -->
           <td class="category">
             <div class="flip-box">
-              <div class="flip-box-inner">
-                <div class="flip-box-front">
-                  Goal/Challenge
-                </div>
-                <div class="flip-box-back">
-                  The central objective or obstacle that motivates the narrative, creating purpose 
-                  and driving the storyline or content structure.
-                </div>
-              </div>
+              <div class="front">Goal/Challenge</div>
+              <div class="back">The central objective or obstacle that motivates the narrative, creating purpose and driving the storyline or content structure.</div>
             </div>
           </td>
           <td class="score-cell" data-score="1">No clear goal or challenge; feels random.</td>
@@ -243,38 +161,22 @@
           <td class="score-cell" data-score="4">Bold, high-stakes challenge that sparks curiosity and emotional investment immediately.</td>
         </tr>
         <tr>
-          <!-- CTA & Audience Interaction -->
           <td class="category">
             <div class="flip-box">
-              <div class="flip-box-inner">
-                <div class="flip-box-front">
-                  CTA &amp; Audience Interaction
-                </div>
-                <div class="flip-box-back">
-                  A direct request or instruction to the audience—such as “subscribe,” “click,” or 
-                  “share”—designed to spark engagement or prompt a response.
-                </div>
-              </div>
+              <div class="front">CTA & Audience Interaction</div>
+              <div class="back">A direct request or instruction to the audience—such as “subscribe,” “click,” or “share”—designed to spark engagement or prompt a response.</div>
             </div>
           </td>
-          <td class="score-cell" data-score="1">Generic or weak CTA (e.g., “Like &amp; Subscribe”).</td>
+          <td class="score-cell" data-score="1">Generic or weak CTA (e.g., “Like & Subscribe”).</td>
           <td class="score-cell" data-score="2">Basic CTA with minor interaction prompts.</td>
           <td class="score-cell" data-score="3">Strong and relevant CTA tied to the video’s premise (e.g., “Comment your score below!”).</td>
           <td class="score-cell" data-score="4">Actionable, creative, and emotional CTA that integrates seamlessly with the video’s content.</td>
         </tr>
         <tr>
-          <!-- Trend Jacking -->
           <td class="category">
             <div class="flip-box">
-              <div class="flip-box-inner">
-                <div class="flip-box-front">
-                  Trend Jacking
-                </div>
-                <div class="flip-box-back">
-                  Capitalizing on current trends, popular topics, or viral moments to 
-                  increase relevance and audience reach.
-                </div>
-              </div>
+              <div class="front">Trend Jacking</div>
+              <div class="back">Capitalizing on current trends, popular topics, or viral moments to increase relevance and audience reach.</div>
             </div>
           </td>
           <td class="score-cell" data-score="1">Outdated or irrelevant trend used.</td>
@@ -283,18 +185,10 @@
           <td class="score-cell" data-score="4">Redefines or innovates a trend, making it fresh and uniquely engaging.</td>
         </tr>
         <tr>
-          <!-- Emotional Teaser -->
           <td class="category">
             <div class="flip-box">
-              <div class="flip-box-inner">
-                <div class="flip-box-front">
-                  Emotional Teaser
-                </div>
-                <div class="flip-box-back">
-                  A brief, emotionally charged preview or introduction that hooks viewers by tapping 
-                  into their feelings, curiosity, or empathy.
-                </div>
-              </div>
+              <div class="front">Emotional Teaser</div>
+              <div class="back">A brief, emotionally charged preview or introduction that hooks viewers by tapping into their feelings, curiosity, or empathy.</div>
             </div>
           </td>
           <td class="score-cell" data-score="1">Boring or generic reactions with no real connection to the content.</td>
@@ -303,18 +197,10 @@
           <td class="score-cell" data-score="4">Thrilling or heartwarming teasers that perfectly preview the stakes or payoffs of the video.</td>
         </tr>
         <tr>
-          <!-- Conflict & Stakes -->
           <td class="category">
             <div class="flip-box">
-              <div class="flip-box-inner">
-                <div class="flip-box-front">
-                  Conflict &amp; Stakes
-                </div>
-                <div class="flip-box-back">
-                  The tension or problem at the heart of a narrative and the potential consequences or 
-                  risks, which heighten audience investment and drama.
-                </div>
-              </div>
+              <div class="front">Conflict & Stakes</div>
+              <div class="back">The tension or problem at the heart of a narrative and the potential consequences or risks, which heighten audience investment and drama.</div>
             </div>
           </td>
           <td class="score-cell" data-score="1">Low stakes or unclear conflict.</td>
@@ -323,18 +209,10 @@
           <td class="score-cell" data-score="4">Tension or stakes are unavoidable and emotionally gripping, creating a must-watch atmosphere.</td>
         </tr>
         <tr>
-          <!-- Visual Hooks -->
           <td class="category">
             <div class="flip-box">
-              <div class="flip-box-inner">
-                <div class="flip-box-front">
-                  Visual Hooks
-                </div>
-                <div class="flip-box-back">
-                  Eye-catching images, graphics, or scenes that instantly grab viewers’ 
-                  attention and maintain interest.
-                </div>
-              </div>
+              <div class="front">Visual Hooks</div>
+              <div class="back">Eye-catching images, graphics, or scenes that instantly grab viewers’ attention and maintain interest.</div>
             </div>
           </td>
           <td class="score-cell" data-score="1">Overwhelming or underwhelming visuals that fail to captivate.</td>
@@ -343,18 +221,10 @@
           <td class="score-cell" data-score="4">Cinematic, memorable visuals that amplify tension, stakes, and engagement perfectly.</td>
         </tr>
         <tr>
-          <!-- Intro Length -->
           <td class="category">
             <div class="flip-box">
-              <div class="flip-box-inner">
-                <div class="flip-box-front">
-                  Intro Length
-                </div>
-                <div class="flip-box-back">
-                  The duration of a video’s opening segment; ideally kept concise to quickly engage 
-                  viewers before revealing the core content.
-                </div>
-              </div>
+              <div class="front">Intro Length</div>
+              <div class="back">The duration of a video’s opening segment; ideally kept concise to quickly engage viewers before revealing the core content.</div>
             </div>
           </td>
           <td class="score-cell" data-score="1">Too long; viewers lose interest before it ends.</td>
@@ -363,18 +233,10 @@
           <td class="score-cell" data-score="4">Masterfully tight, under 20 seconds, leaving viewers wanting more.</td>
         </tr>
         <tr>
-          <!-- Transitions -->
           <td class="category">
             <div class="flip-box">
-              <div class="flip-box-inner">
-                <div class="flip-box-front">
-                  Transitions
-                </div>
-                <div class="flip-box-back">
-                  Techniques (cuts, fades, wipes, etc.) used to move smoothly between 
-                  scenes or sections, maintaining flow and clarity.
-                </div>
-              </div>
+              <div class="front">Transitions</div>
+              <div class="back">Techniques (cuts, fades, wipes, etc.) used to move smoothly between scenes or sections, maintaining flow and clarity.</div>
             </div>
           </td>
           <td class="score-cell" data-score="1">Jarring or unclear transitions to the main content.</td>
@@ -419,14 +281,7 @@
       selectedCells.forEach(cell => {
         totalScore += parseInt(cell.getAttribute('data-score')) || 0;
       });
-
-      // Calculate max score dynamically based on number of rows (categories) times 4
-      const totalCategories = document.querySelectorAll('tbody tr').length;
-      const maxScore = totalCategories * 4;
-
-      // Display total score and max possible score (e.g., 20/40)
-      document.getElementById('total-score').textContent = `${totalScore}/${maxScore}`;
-
+      document.getElementById('total-score').textContent = totalScore;
       const status = totalScore >= 35 ? "Approved" : "Not Approved";
       document.getElementById('approval-status').textContent = `Status: ${status}`;
     }
