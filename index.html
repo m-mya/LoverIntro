@@ -43,6 +43,8 @@
       font-weight: bold; /* Bolded categories */
       position: relative;
       perspective: 1000px; /* For 3D flip effect */
+      width: 150px; /* Fixed width for flip boxes */
+      height: 80px; /* Fixed height for flip boxes */
     }
     .category .flip-box {
       width: 100%;
@@ -65,6 +67,9 @@
       justify-content: center;
       padding: 10px;
       box-sizing: border-box;
+      text-align: center; /* Center-align text */
+      font-size: 14px; /* Adjust font size for readability */
+      line-height: 1.4; /* Improve line spacing */
     }
     .category .flip-box .front {
       background-color: #13223d; /* Dark color */
@@ -108,6 +113,23 @@
     .score-summary p {
       font-size: 1.2rem;
     }
+    .ai-tips {
+      background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter background */
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .ai-tips h2 {
+      color: #ff004f; /* Highlight color */
+      margin-bottom: 10px;
+    }
+    .ai-tips ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+    .ai-tips li {
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
@@ -127,122 +149,98 @@
         <tr>
           <td class="category">
             <div class="flip-box">
-              <div class="front">Pacing</div>
-              <div class="back">Refers to the rhythm and speed at which a video or story unfolds, influencing how engaged the audience stays throughout.</div>
+              <div class="front">Hook / Intro</div>
+              <div class="back">The opening segment designed to grab attention and set the tone for the video.</div>
             </div>
           </td>
-          <td class="score-cell" data-score="1">Slow and awkward; viewers lose interest quickly.</td>
-          <td class="score-cell" data-score="2">Decent pacing but inconsistent transitions.</td>
-          <td class="score-cell" data-score="3">Smooth and engaging pacing with tight edits.</td>
-          <td class="score-cell" data-score="4">Perfectly timed, high-energy pacing that hooks viewers from the first second.</td>
+          <td class="score-cell" data-score="1">Slow or unclear start; lacks a strong hook, making viewers drop off.</td>
+          <td class="score-cell" data-score="2">Decent hook but takes time to get to the main content.</td>
+          <td class="score-cell" data-score="3">Strong hook that grabs attention quickly but could be tighter.</td>
+          <td class="score-cell" data-score="4">Instant hook that keeps viewers engaged, intriguing setup within seconds.</td>
         </tr>
         <tr>
           <td class="category">
             <div class="flip-box">
-              <div class="front">Voice-Over</div>
-              <div class="back">An off-camera narration or commentary that provides context, explains visuals, or drives the narrative forward in a video or presentation.</div>
+              <div class="front">Pacing & Flow</div>
+              <div class="back">The rhythm and timing of the video, ensuring smooth transitions and engagement.</div>
             </div>
           </td>
-          <td class="score-cell" data-score="1">Monotone or unclear delivery.</td>
-          <td class="score-cell" data-score="2">Clear but lacks energy or variation.</td>
-          <td class="score-cell" data-score="3">Energetic, engaging, and emotionally varied tone.</td>
-          <td class="score-cell" data-score="4">Captivating and animated voiceover, perfectly synced with visuals to maximize impact.</td>
+          <td class="score-cell" data-score="1">Slow and awkward; viewers lose interest.</td>
+          <td class="score-cell" data-score="2">Decent pacing but inconsistent.</td>
+          <td class="score-cell" data-score="3">Smooth and engaging pacing with well-timed cuts.</td>
+          <td class="score-cell" data-score="4">Perfectly timed, high-energy pacing that keeps viewers watching.</td>
         </tr>
         <tr>
           <td class="category">
             <div class="flip-box">
-              <div class="front">Goal/Challenge</div>
-              <div class="back">The central objective or obstacle that motivates the narrative, creating purpose and driving the storyline or content structure.</div>
+              <div class="front">Trend Relevance</div>
+              <div class="back">How well the video aligns with current trends or viral topics.</div>
             </div>
           </td>
-          <td class="score-cell" data-score="1">No clear goal or challenge; feels random.</td>
-          <td class="score-cell" data-score="2">Goal stated but lacks excitement or urgency.</td>
-          <td class="score-cell" data-score="3">Clear and intriguing goal, explained succinctly.</td>
-          <td class="score-cell" data-score="4">Bold, high-stakes challenge that sparks curiosity and emotional investment immediately.</td>
+          <td class="score-cell" data-score="1">No awareness of current trends; outdated or irrelevant topic.</td>
+          <td class="score-cell" data-score="2">Some connection to trends but not fully optimized.</td>
+          <td class="score-cell" data-score="3">Strong use of trending elements but not fully capitalized.</td>
+          <td class="score-cell" data-score="4">Perfectly aligned with trends, viral potential maximized.</td>
         </tr>
         <tr>
           <td class="category">
             <div class="flip-box">
-              <div class="front">CTA & Audience Interaction</div>
-              <div class="back">A direct request or instruction to the audience—such as “subscribe,” “click,” or “share”—designed to spark engagement or prompt a response.</div>
+              <div class="front">Emotional Impact</div>
+              <div class="back">The ability of the video to evoke emotions and connect with the audience.</div>
             </div>
           </td>
-          <td class="score-cell" data-score="1">Generic or weak CTA (e.g., “Like & Subscribe”).</td>
-          <td class="score-cell" data-score="2">Basic CTA with minor interaction prompts.</td>
-          <td class="score-cell" data-score="3">Strong and relevant CTA tied to the video’s premise (e.g., “Comment your score below!”).</td>
-          <td class="score-cell" data-score="4">Actionable, creative, and emotional CTA that integrates seamlessly with the video’s content.</td>
+          <td class="score-cell" data-score="1">Lacks emotional depth; feels robotic or uninspired.</td>
+          <td class="score-cell" data-score="2">Some emotional engagement but inconsistent.</td>
+          <td class="score-cell" data-score="3">Strong emotional connection with good storytelling.</td>
+          <td class="score-cell" data-score="4">Powerful emotional highs/lows, making viewers feel invested.</td>
         </tr>
         <tr>
           <td class="category">
             <div class="flip-box">
-              <div class="front">Trend Jacking</div>
-              <div class="back">Capitalizing on current trends, popular topics, or viral moments to increase relevance and audience reach.</div>
+              <div class="front">Video Goal & Payoff</div>
+              <div class="back">The clarity and satisfaction of the video's purpose and conclusion.</div>
             </div>
           </td>
-          <td class="score-cell" data-score="1">Outdated or irrelevant trend used.</td>
-          <td class="score-cell" data-score="2">Mentions trend but feels forced.</td>
-          <td class="score-cell" data-score="3">Integrates trends naturally while staying authentic to the video’s theme.</td>
-          <td class="score-cell" data-score="4">Redefines or innovates a trend, making it fresh and uniquely engaging.</td>
+          <td class="score-cell" data-score="1">Goal is unclear or not compelling; weak reason to watch.</td>
+          <td class="score-cell" data-score="2">Goal is somewhat engaging but not fully delivered.</td>
+          <td class="score-cell" data-score="3">Clear goal with a satisfying payoff.</td>
+          <td class="score-cell" data-score="4">Compelling goal with high stakes and a rewarding conclusion.</td>
         </tr>
         <tr>
           <td class="category">
             <div class="flip-box">
-              <div class="front">Emotional Teaser</div>
-              <div class="back">A brief, emotionally charged preview or introduction that hooks viewers by tapping into their feelings, curiosity, or empathy.</div>
+              <div class="front">Conflict / Stakes</div>
+              <div class="back">The tension or problem at the heart of the video, driving viewer engagement.</div>
             </div>
           </td>
-          <td class="score-cell" data-score="1">Boring or generic reactions with no real connection to the content.</td>
-          <td class="score-cell" data-score="2">Somewhat intriguing but lacks emotional stakes.</td>
-          <td class="score-cell" data-score="3">Effective teaser moments that build curiosity and excitement.</td>
-          <td class="score-cell" data-score="4">Thrilling or heartwarming teasers that perfectly preview the stakes or payoffs of the video.</td>
+          <td class="score-cell" data-score="1">No tension or stakes; video feels low-impact.</td>
+          <td class="score-cell" data-score="2">Some stakes, but not enough to keep viewers invested.</td>
+          <td class="score-cell" data-score="3">Well-established stakes with rising tension.</td>
+          <td class="score-cell" data-score="4">High-stakes, strong conflict, and resolution that keeps viewers hooked.</td>
         </tr>
         <tr>
           <td class="category">
             <div class="flip-box">
-              <div class="front">Conflict & Stakes</div>
-              <div class="back">The tension or problem at the heart of a narrative and the potential consequences or risks, which heighten audience investment and drama.</div>
+              <div class="front">Retention Elements</div>
+              <div class="back">Techniques used to keep viewers engaged throughout the video.</div>
             </div>
           </td>
-          <td class="score-cell" data-score="1">Low stakes or unclear conflict.</td>
-          <td class="score-cell" data-score="2">Basic stakes are present but not emotionally engaging.</td>
-          <td class="score-cell" data-score="3">High stakes introduced with some tension or excitement.</td>
-          <td class="score-cell" data-score="4">Tension or stakes are unavoidable and emotionally gripping, creating a must-watch atmosphere.</td>
+          <td class="score-cell" data-score="1">Viewers drop off early due to lack of engagement.</td>
+          <td class="score-cell" data-score="2">Decent retention techniques but could be stronger.</td>
+          <td class="score-cell" data-score="3">Strong use of retention tactics (pattern interrupts, surprises).</td>
+          <td class="score-cell" data-score="4">Masterful retention strategy, keeps audience watching until the end.</td>
         </tr>
         <tr>
           <td class="category">
             <div class="flip-box">
-              <div class="front">Visual Hooks</div>
-              <div class="back">Eye-catching images, graphics, or scenes that instantly grab viewers’ attention and maintain interest.</div>
+              <div class="front">Editing & Visuals</div>
+              <div class="back">The quality and effectiveness of the video's editing and visual elements.</div>
             </div>
           </td>
-          <td class="score-cell" data-score="1">Overwhelming or underwhelming visuals that fail to captivate.</td>
-          <td class="score-cell" data-score="2">Decent visuals but lack cohesion or excitement.</td>
-          <td class="score-cell" data-score="3">Eye-catching visuals that align with the intro’s narrative.</td>
-          <td class="score-cell" data-score="4">Cinematic, memorable visuals that amplify tension, stakes, and engagement perfectly.</td>
-        </tr>
-        <tr>
-          <td class="category">
-            <div class="flip-box">
-              <div class="front">Intro Length</div>
-              <div class="back">The duration of a video’s opening segment; ideally kept concise to quickly engage viewers before revealing the core content.</div>
-            </div>
-          </td>
-          <td class="score-cell" data-score="1">Too long; viewers lose interest before it ends.</td>
-          <td class="score-cell" data-score="2">Moderately concise but could be shorter.</td>
-          <td class="score-cell" data-score="3">Concise and engaging under 25 seconds.</td>
-          <td class="score-cell" data-score="4">Masterfully tight, under 20 seconds, leaving viewers wanting more.</td>
-        </tr>
-        <tr>
-          <td class="category">
-            <div class="flip-box">
-              <div class="front">Transitions</div>
-              <div class="back">Techniques (cuts, fades, wipes, etc.) used to move smoothly between scenes or sections, maintaining flow and clarity.</div>
-            </div>
-          </td>
-          <td class="score-cell" data-score="1">Jarring or unclear transitions to the main content.</td>
-          <td class="score-cell" data-score="2">Transitions work but lack polish.</td>
-          <td class="score-cell" data-score="3">Clear and smooth transitions with good pacing.</td>
-          <td class="score-cell" data-score="4">Flawless transitions using music, visuals, or sound effects to maintain momentum and flow.</td>
+          <td class="score-cell" data-score="1">Poor editing, distracting visuals, or low quality.</td>
+          <td class="score-cell" data-score="2">Basic editing, some engaging visuals but inconsistent.</td>
+          <td class="score-cell" data-score="3">High-quality editing with engaging cuts and effects.</td>
+          <td class="score-cell" data-score="4">Top-tier editing, visually dynamic, enhances storytelling.</td>
         </tr>
       </tbody>
     </table>
@@ -255,6 +253,12 @@
     <div class="recommendations">
       <h2>AI Recommendations</h2>
       <p id="ai-recommendations">Recommendations will appear here.</p>
+    </div>
+    <div class="ai-tips">
+      <h2>AI Suggested Editing Tips</h2>
+      <ul id="ai-tips-list">
+        <!-- AI tips will be dynamically inserted here -->
+      </ul>
     </div>
     <button class="button" onclick="exportReport()">Export Report</button>
     <button class="button" onclick="resetReport()">Reset</button>
@@ -269,8 +273,9 @@
         row.querySelectorAll('.score-cell').forEach(c => c.classList.remove('selected'));
         // Add selected class to the clicked cell
         cell.classList.add('selected');
-        // Update the total score display
+        // Update the total score display and AI tips
         calculateTotalScore();
+        generateAITips();
       });
     });
 
@@ -282,8 +287,46 @@
         totalScore += parseInt(cell.getAttribute('data-score')) || 0;
       });
       document.getElementById('total-score').textContent = totalScore;
-      const status = totalScore >= 35 ? "Approved" : "Not Approved";
+      const status = totalScore >= 28 ? "Approved" : "Not Approved";
       document.getElementById('approval-status').textContent = `Status: ${status}`;
+    }
+
+    // Generate AI tips based on selected scores
+    function generateAITips() {
+      const selectedCells = document.querySelectorAll('.score-cell.selected');
+      const tips = [];
+      selectedCells.forEach(cell => {
+        const category = cell.closest('tr').querySelector('.category .front').textContent;
+        const score = parseInt(cell.getAttribute('data-score'));
+        if (score <= 2) {
+          tips.push(`<li><strong>${category}:</strong> Focus on improving ${category.toLowerCase()} to make it more engaging. For example, ${getSpecificTip(category, score)}</li>`);
+        }
+      });
+      document.getElementById('ai-tips-list').innerHTML = tips.join('');
+    }
+
+    // Get specific tips for each category
+    function getSpecificTip(category, score) {
+      switch (category) {
+        case 'Hook / Intro':
+          return "create a stronger opening that grabs attention instantly.";
+        case 'Pacing & Flow':
+          return "tighten the pacing and ensure smooth transitions between scenes.";
+        case 'Trend Relevance':
+          return "integrate current trends more naturally and authentically.";
+        case 'Emotional Impact':
+          return "add more emotional depth to connect with the audience.";
+        case 'Video Goal & Payoff':
+          return "clearly define the goal and ensure a satisfying payoff.";
+        case 'Conflict / Stakes':
+          return "heighten the stakes and create more tension to keep viewers engaged.";
+        case 'Retention Elements':
+          return "use more retention techniques like pattern interrupts or surprises.";
+        case 'Editing & Visuals':
+          return "improve the editing quality and use more dynamic visuals.";
+        default:
+          return "review and refine this section for better engagement.";
+      }
     }
 
     // Reset the report
@@ -295,6 +338,7 @@
       document.getElementById('total-score').textContent = 0;
       document.getElementById('approval-status').textContent = "";
       document.getElementById('ai-recommendations').innerText = "Recommendations will appear here.";
+      document.getElementById('ai-tips-list').innerHTML = "";
     }
 
     // Export functionality (placeholder)
