@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intro Review</title>
-  <link href="https://fonts.cdnfonts.com/css/cocogoose" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/cocogoose" rel="stylesheet" />
   <style>
     body {
       background-color: #13223d; /* Dark color */
@@ -39,6 +39,7 @@
       background-color: #ff004f; /* Highlight color */
       color: #13223d; /* Dark color for text */
     }
+    /* Rubric Category (flip box) styles */
     .category {
       font-weight: bold; /* Bolded categories */
       position: relative;
@@ -52,9 +53,12 @@
       position: relative;
       transform-style: preserve-3d;
       transition: transform 0.6s;
+      cursor: pointer; /* Indicate clickable */
     }
-    .category:hover .flip-box {
-      transform: rotateY(180deg); /* Flip on hover */
+    /* Flip on hover or when toggled with the "flipped" class */
+    .category:hover .flip-box,
+    .category .flip-box.flipped {
+      transform: rotateY(180deg);
     }
     .category .flip-box .front,
     .category .flip-box .back {
@@ -78,7 +82,16 @@
     .category .flip-box .back {
       background-color: #ff004f; /* Highlight color */
       color: #ffffff; /* White text */
-      transform: rotateY(180deg); /* Flip to the back */
+      transform: rotateY(180deg); /* Back side (flipped) */
+    }
+    /* Score cell styles */
+    .score-cell {
+      cursor: pointer; /* Make it clear these cells are clickable */
+    }
+    /* Visual indicator for selected score cells */
+    .score-cell.selected {
+      background-color: #ff004f;
+      color: #13223d;
     }
     .button {
       background-color: #ff004f; /* Highlight color */
@@ -244,38 +257,54 @@
         </tr>
       </tbody>
     </table>
+
     <div class="score-summary">
       <h2>Total Score</h2>
       <p id="total-score">0</p>
       <p id="approval-status"></p>
     </div>
+
     <button class="button" onclick="calculateTotalScore()">Calculate Total Score</button>
+
     <div class="recommendations">
       <h2>AI Recommendations</h2>
       <p id="ai-recommendations">Recommendations will appear here.</p>
     </div>
+
     <div class="ai-tips">
       <h2>AI Suggested Editing Tips</h2>
       <ul id="ai-tips-list">
         <!-- AI tips will be dynamically inserted here -->
       </ul>
     </div>
+
     <button class="button" onclick="exportReport()">Export Report</button>
     <button class="button" onclick="resetReport()">Reset</button>
   </div>
+
   <script>
-    // Add click event listeners to score cells
+    // Attach click events to score cells
     const scoreCells = document.querySelectorAll('.score-cell');
     scoreCells.forEach(cell => {
       cell.addEventListener('click', () => {
-        // Remove selected class from all cells in the same row
+        // Remove "selected" from all score cells in the same row
         const row = cell.parentElement;
         row.querySelectorAll('.score-cell').forEach(c => c.classList.remove('selected'));
-        // Add selected class to the clicked cell
+        // Add "selected" to the clicked cell
         cell.classList.add('selected');
-        // Update the total score display and AI tips
+        // Update total score and AI tips
         calculateTotalScore();
         generateAITips();
+      });
+    });
+
+    // Allow flip-boxes to toggle their flipped state on click (for mobile or click support)
+    const flipBoxes = document.querySelectorAll('.flip-box');
+    flipBoxes.forEach(box => {
+      box.addEventListener('click', (e) => {
+        // Prevent the click from bubbling (in case the parent has other handlers)
+        e.stopPropagation();
+        box.classList.toggle('flipped');
       });
     });
 
@@ -305,7 +334,7 @@
       document.getElementById('ai-tips-list').innerHTML = tips.join('');
     }
 
-    // Get specific tips for each category
+    // Provide specific editing tips for each category
     function getSpecificTip(category, score) {
       switch (category) {
         case 'Hook / Intro':
@@ -331,8 +360,7 @@
 
     // Reset the report
     function resetReport() {
-      const scoreCells = document.querySelectorAll('.score-cell');
-      scoreCells.forEach(cell => {
+      document.querySelectorAll('.score-cell').forEach(cell => {
         cell.classList.remove('selected');
       });
       document.getElementById('total-score').textContent = 0;
